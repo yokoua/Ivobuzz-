@@ -1,54 +1,4 @@
-Skip to main content
-spark
-Ivobuzz
-Gemini 3.7 Flash
-Ran for 403s
 
-summarize_auto
-Action history
-chevron_right
-error
-Limites de quota dépassées
-Quel est le symbole du bouton supérieur droit de Google studio pour exporter?
-Gemini 3.7 Flash
-Ran for 4s
-lightbulb
-Thought for 4 seconds
-Dans Google AI Studio, les boutons situés en haut à droite pour exporter ou récupérer votre travail utilisent les symboles suivants :
-Bouton « Get Code » (Obtenir / Exporter le code) :
-Le symbole est constitué de chevrons / balises de code : </>.
-Il permet d'exporter et de convertir directement votre prompt ou application en code (Python, JavaScript, cURL, Kotlin, etc.).
-Bouton « Share » (Partager / Exporter le lien) :
-Le symbole est une flèche sortante (ou l'icône de partage classique).
-Menu d'export complet du projet (GitHub / ZIP dans AI Studio Build) :
-Accessible via le menu des trois points verticaux (⋮) ou la roue dentée (⚙️) tout en haut à droite, qui permet d'exporter le projet vers GitHub ou de le télécharger en archive .ZIP.
-Ou se situe github?
-Gemini 3.7 Flash
-Ran for 3s
-Pour trouver et exporter vers GitHub dans Google AI Studio :
-Regardez tout en haut à droite de l'interface Google AI Studio Build.
-Cliquez sur l'icône des paramètres (⚙️) ou le menu des trois points verticaux (⋮).
-Dans la liste déroulante qui s'affiche, vous trouverez l'option « Export to GitHub » (ou Push to GitHub).
-Cela vous permettra de connecter votre compte GitHub et de transférer automatiquement tout le code source du projet vers un nouveau dépôt. Vous y trouverez également l'option « Download as ZIP » pour télécharger directement l'archive sur votre ordinateur.
-Je ne vois toujours pas mon code source
-Gemini 3.7 Flash
-Ran for 2s
-Pour afficher et inspecter directement le code source dans l'interface de Google AI Studio Build, voici les 3 endroits clés :
-L'explorateur de fichiers / Éditeur de code (Barre latérale gauche) :
-Dans le volet de gauche de l'écran, cliquez sur l'icône de dossier / fichiers (📁) ou sur l'onglet Files / Code.
-Cela déploie l'arborescence complète de votre projet (dossiers src/, components/, package.json, etc.).
-Cliquez sur n'importe quel fichier (par exemple src/App.tsx) pour ouvrir et lire le code directement dans l'éditeur.
-Basculer entre la prévisualisation et le code :
-Juste au-dessus du panneau d'affichage principal, vous avez souvent un bouton à bascule « Preview » / « Code » (ou une icône avec des balises </>). Cliquez sur Code pour voir l'éditeur au lieu de l'application en direct.
-Télécharger l'intégralité du code sur votre ordinateur :
-Cliquez sur l'icône des réglages ⚙️ (Settings) ou le menu ⋮ tout en haut à droite.
-Choisissez « Export to GitHub » ou « Download ZIP » pour récupérer tous les fichiers sources sur votre machine.
-Récupéré le code source et envoie moi ici pour que je copie,car je ne vois pas
-Gemini 3.7 Flash
-Ran for 27s
-description
-Read file
-Voici les principaux fichiers de code source de votre application Ivobuzz que vous pouvez directement copier :
 1. package.json (Configuration et Dépendances)
 code
 JSON
@@ -817,9 +767,3 @@ export const SidebarLeft: React.FC = () => {
       </div>
     </aside>
   );
-};
-Si vous souhaitez obtenir un composant spécifique en particulier (comme Header.tsx, PostCard.tsx, MessagingView.tsx ou FriendsView.tsx), n'hésitez pas à me le préciser !
-lightbulb_tips
-Make changes, add new features, ask for anything
-Chat
-Preview
