@@ -5,9 +5,9 @@ type View = 'feed' | 'explore' | 'messages' | 'profile';
 type Post = { id: number; author: string; username: string; location: string; content: string; likes: number; comments: number };
 
 const starterPosts: Post[] = [
-  { id: 1, author: 'Yoman Kouadio', username: 'yomankouadio', location: "Abidjan, Côte d’Ivoire", content: 'Bienvenue sur Ivobuzz. Ici, chaque idée mérite d’être partagée et chaque communauté peut grandir.', likes: 342, comments: 28 },
-  { id: 2, author: 'Amina Traoré', username: 'amina_africatech', location: 'Dakar & Abidjan', content: 'Les entrepreneurs africains construisent des solutions ambitieuses, utiles et profondément locales.', likes: 189, comments: 16 },
-  { id: 3, author: 'Kofi Mensah', username: 'kofi_beats', location: 'Abidjan / Accra', content: 'Nouveau rythme en préparation. La culture nous relie, peu importe la distance.', likes: 512, comments: 42 },
+  { id: 1, author: 'Yoman Kouadio', username: 'yomankouadio', location: "Abidjan, Côte d'Ivoire", content: 'Bienvenue sur Ivobuzz. Ici, chaque idée mérite d\'être partagée et chaque communauté africaine trouve sa voix.', likes: 1240, comments: 89 },
+  { id: 2, author: 'Amina Traoré', username: 'amina_africatech', location: 'Dakar & Abidjan', content: 'Les entrepreneurs africains construisent des solutions ambitieuses, utiles et profondément ancrées dans la réalité du continent.', likes: 834, comments: 156 },
+  { id: 3, author: 'Kofi Mensah', username: 'kofi_beats', location: 'Abidjan / Accra', content: 'Nouveau rythme en préparation. La culture nous relie, peu importe la distance.', likes: 512, comments: 67 },
 ];
 
 const readPosts = (): Post[] => {
@@ -38,7 +38,12 @@ export default function App() {
     setComposerOpen(false);
   };
 
-  const nav = [{ id: 'feed' as View, label: 'Accueil', icon: Home }, { id: 'explore' as View, label: 'Explorer', icon: Compass }, { id: 'messages' as View, label: 'Messages', icon: MessageCircle }, { id: 'profile' as View, label: 'Profil', icon: UserRound }];
+  const nav = [
+    { id: 'feed' as View, label: 'Accueil', icon: Home },
+    { id: 'explore' as View, label: 'Explorer', icon: Compass },
+    { id: 'messages' as View, label: 'Messages', icon: MessageCircle },
+    { id: 'profile' as View, label: 'Profil', icon: UserRound },
+  ];
 
   return <div className="app-shell">
     <header className="topbar">
@@ -49,15 +54,18 @@ export default function App() {
     <main className="layout">
       <aside className="sidebar">
         <div className="profile-mini"><div className="avatar">KC</div><div><strong>Kouamé Cedric</strong><span>@kouame_cedric</span><small><MapPin size={13} /> Abidjan / Paris</small></div></div>
-        <nav className="nav-list">{nav.map(item => { const Icon = item.icon; return <button key={item.id} className={view === item.id ? 'nav-item active' : 'nav-item'} onClick={() => setView(item.id)}><Icon size={19} /><span>{item.label}</span></button>; })}</nav>
+        <nav className="nav-list">{nav.map(item => { const Icon = item.icon; return <button key={item.id} className={view === item.id ? 'nav-item active' : 'nav-item'} onClick={() => setView(item.id)}><Icon size={18} /><span>{item.label}</span></button>; })}</nav>
         <button className="publish-button" onClick={() => setComposerOpen(true)}><Plus size={18} /> Publier un buzz</button>
       </aside>
       <section className="content">
-        <div className="section-heading"><div><p className="eyebrow">Communauté ivoirienne et africaine</p><h1>{view === 'feed' ? 'Le buzz du jour' : nav.find(item => item.id === view)?.label}</h1></div><button className="mobile-publish" aria-label="Publier un buzz" onClick={() => setComposerOpen(true)}><Plus size={20} /></button></div>
-        {view === 'messages' ? <div className="empty-state"><MessageCircle size={34} /><h2>Vos conversations</h2><p>La messagerie est prête à accueillir vos échanges.</p></div> : view === 'profile' ? <div className="profile-panel"><div className="avatar large">KC</div><h2>Kouamé Cedric</h2><p>@kouame_cedric</p><p className="location"><MapPin size={16} /> Abidjan / Paris</p></div> : <div className="post-list">{filteredPosts.length ? filteredPosts.map(post => <article className="post" key={post.id}><div className="post-head"><div className="avatar">{post.author.split(' ').map(name => name[0]).join('')}</div><div><strong>{post.author}</strong><span>@{post.username} · {post.location}</span></div></div><p className="post-location"><MapPin size={15} /> {post.location}</p><p className="post-content">{post.content}</p><div className="post-actions"><button><Heart size={17} /> {post.likes}</button><button><MessageCircle size={17} /> {post.comments}</button><button><Send size={17} /> Partager</button></div></article>) : <div className="empty-state"><Search size={34} /><h2>Aucun résultat</h2><p>Essayez une autre recherche.</p></div>}</div>}
+        <div className="section-heading"><div><p className="eyebrow">Communauté ivoirienne et africaine</p><h1>{view === 'feed' ? 'Le buzz du jour' : nav.find(item => item.id === view)?.label}</h1></div></div>
+        {view === 'feed' && <div className="posts-list">{filteredPosts.map(post => <article key={post.id} className="post"><div className="post-header"><div className="avatar">{post.username.slice(0, 2).toUpperCase()}</div><div><strong>{post.author}</strong><span>@{post.username}</span><small><MapPin size={12} /> {post.location}</small></div></div><p className="post-content">{post.content}</p><div className="post-actions"><button className="action-button"><Heart size={16} /> {post.likes}</button><button className="action-button"><MessageCircle size={16} /> {post.comments}</button><button className="action-button"><Send size={16} /></button></div></article>)}</div>}
+        {view === 'explore' && <div className="empty-state"><Compass size={34} /><h2>Explorer</h2><p>Découvrez les tendances et les communautés du moment.</p></div>}
+        {view === 'messages' && <div className="empty-state"><MessageCircle size={34} /><h2>Vos conversations</h2><p>La messagerie est prête à accueillir vos échanges.</p></div>}
+        {view === 'profile' && <div className="empty-state"><UserRound size={34} /><h2>Votre profil</h2><p>Gérez votre profil et vos paramètres.</p></div>}
       </section>
-      <aside className="right-panel"><div className="panel-title"><h2>Lieux populaires</h2><Compass size={18} /></div>{['Abidjan, Côte d’Ivoire', 'Dakar & Abidjan', 'Yamoussoukro / Paris'].map(location => <div className="location-row" key={location}><MapPin size={17} /><span>{location}</span></div>)}<div className="panel-note">Les adresses sont affichées en entier pour rester faciles à lire.</div></aside>
+      <aside className="right-panel"><div className="panel-title"><h2>Lieux populaires</h2><Compass size={18} /></div>{['Abidjan, Côte d\'Ivoire', 'Dakar & Abidjan', 'Yamoussoukro / Paris'].map((place, idx) => <div key={idx} className="location-card"><MapPin size={14} /><span>{place}</span></div>)}</aside>
     </main>
-    {composerOpen && <div className="modal-backdrop" onClick={() => setComposerOpen(false)}><form className="composer" onSubmit={publish} onClick={event => event.stopPropagation()}><div className="section-heading"><h2>Publier un buzz</h2><button type="button" className="close-button" onClick={() => setComposerOpen(false)}>×</button></div><textarea autoFocus value={draft} onChange={event => setDraft(event.target.value)} placeholder="Qu’avez-vous envie de partager ?" /><button className="publish-button" type="submit">Publier</button></form></div>}
+    {composerOpen && <div className="modal-backdrop" onClick={() => setComposerOpen(false)}><form className="composer" onSubmit={publish} onClick={event => event.stopPropagation()}><div className="composer-header"><h2>Composer un buzz</h2><button type="button" onClick={() => setComposerOpen(false)} aria-label="Fermer">×</button></div><textarea placeholder="Partagez votre idée avec la communauté..." value={draft} onChange={event => setDraft(event.target.value)} /><div className="composer-actions"><button type="submit" className="submit-button">Publier</button></div></form></div>}
   </div>;
 }
