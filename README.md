@@ -1,4 +1,13 @@
-# Ivobuzz-
+# Ivobuzz - Réseau Social 🌐
+
+## 🟢 [Accédez à l'application ici](https://yokoua.github.io/Ivobuzz-)
+
+---
+
+## À propos
+Ivobuzz est une application de réseau social moderne et intuitive.
+
+## Technologies
 {
   "name": "react-example",
   "private": true,
