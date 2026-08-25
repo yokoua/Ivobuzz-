@@ -559,7 +559,8 @@ import {
   Music,
   Newspaper,
   ShieldCheck,
-  Globe2
+  Globe2,
+  MapPin
 } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { Category, ViewTab } from '../types';
@@ -631,7 +632,10 @@ export const SidebarLeft: React.FC = () => {
               {currentUser.name}
             </h3>
             <p className="text-xs text-slate-500 truncate">@{currentUser.username}</p>
-            <p className="text-[11px] text-slate-600 mt-0.5 truncate">{currentUser.location}</p>
+            <p className="flex items-start gap-1 text-[11px] leading-4 text-slate-700 mt-1">
+              <MapPin className="w-3 h-3 mt-0.5 shrink-0 text-orange-500" aria-hidden="true" />
+              <span className="line-clamp-2">{currentUser.location}</span>
+            </p>
           </div>
         </div>
 
