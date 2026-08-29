@@ -14,7 +14,10 @@ Ivobuzz est une application de réseau social moderne et intuitive.
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --port=3000 --host=0.0.0.0",
+    "dev": "vite --port=3000
+
+
+ --host=0.0.0.0",
     "build": "vite build",
     "preview": "vite preview",
     "clean": "rm -rf dist server.js",
@@ -45,3 +48,5 @@ Ivobuzz est une application de réseau social moderne et intuitive.
     "@types/express": "^4.17.21"
   }
 }
+"vite": "^6.2.3",
+"terser": "^5.43.1"
